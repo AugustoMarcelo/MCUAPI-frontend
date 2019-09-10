@@ -6,7 +6,7 @@ Dashboard that allow to manage Movies, TV Shows and Characters from [MCU API](ht
 
 **Login page**
 
-![](previews/login.png)
+![](previews/Login.png)
 
 **Dashboard page (Movies List)**
 

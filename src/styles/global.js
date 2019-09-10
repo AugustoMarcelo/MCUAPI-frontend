@@ -23,7 +23,7 @@ export default createGlobalStyle`
   }
 
   body, input, button {
-    font-family: 'Advent Pro', sans-serif;
+    font: 14px 'Advent Pro', sans-serif;
   }
 
   a {

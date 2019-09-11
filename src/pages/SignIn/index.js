@@ -1,8 +1,10 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 
 import logo from '~/assets/logo.svg';
+import { signInRequest } from '~/store/modules/auth/actions';
 
 const schema = Yup.object().shape({
   email: Yup.string()
@@ -12,8 +14,10 @@ const schema = Yup.object().shape({
 });
 
 export default function SignIn() {
-  function handleSubmit(data) {
-    console.tron.log(data);
+  const dispatch = useDispatch();
+
+  function handleSubmit({ email, password }) {
+    dispatch(signInRequest(email, password));
   }
 
   return (
@@ -21,7 +25,12 @@ export default function SignIn() {
       <img src={logo} alt="MCUAPI Logo" width={100} height={100} />
 
       <Form schema={schema} onSubmit={handleSubmit}>
-        <Input name="email" type="email" placeholder="E-mail" />
+        <Input
+          name="email"
+          type="email"
+          placeholder="E-mail"
+          autoComplete="off"
+        />
         <Input name="password" type="password" placeholder="Password" />
 
         <button type="submit">Enter</button>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -12,7 +12,21 @@ import { signOut } from '~/store/modules/auth/actions';
 import { Container, Logo, LogoutButton } from './styles';
 
 export default function LeftSidebar() {
+  const [selectedMenus, setSelectedMenus] = useState({
+    movies: '',
+    tvshows: '',
+    characters: '',
+  });
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    switch (window.location.pathname) {
+      case '/movies':
+        setSelectedMenus({ movies: 'active' });
+        break;
+      default:
+    }
+  }, [window.location.pathname]);
 
   function handleSignOut() {
     dispatch(signOut());
@@ -26,7 +40,7 @@ export default function LeftSidebar() {
           alt="MCUAPI Logo"
           title="Marvel Cinematic Universe API"
         />
-        <Link className="menu" to="/movies">
+        <Link className={`menu ${selectedMenus.movies}`} to="/movies">
           <img src={moviesIcon} alt="Movies Menu Icon" />
           Movies
         </Link>

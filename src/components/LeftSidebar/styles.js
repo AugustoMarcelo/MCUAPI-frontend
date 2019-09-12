@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 export const Container = styled.div`
+  position: fixed;
   width: 120px;
   height: 100%;
   background: linear-gradient(180deg, #0984e3, #74b9ff);
@@ -30,6 +31,10 @@ export const Container = styled.div`
       transition: background 0.2s;
 
       &:hover {
+        background: ${darken(0.05, '#0984e3')};
+      }
+
+      &.active {
         background: ${darken(0.05, '#0984e3')};
       }
 

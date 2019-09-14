@@ -8,9 +8,9 @@ export const Grid = styled.div`
 `;
 
 export const ShineEffect = styled.div`
-  /* border-radius: 50%; */
   overflow: hidden;
   position: relative;
+  cursor: pointer;
 
   &::before {
     content: '';
@@ -34,4 +34,5 @@ export const Card = styled.img`
   width: 200px;
   border-radius: 4px;
   box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 `;

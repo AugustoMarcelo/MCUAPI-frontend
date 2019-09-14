@@ -24,6 +24,12 @@ export default function LeftSidebar() {
       case '/movies':
         setSelectedMenus({ movies: 'active' });
         break;
+      case '/tvshows':
+        setSelectedMenus({ tvshows: 'active' });
+        break;
+      case '/characters':
+        setSelectedMenus({ characters: 'active' });
+        break;
       default:
     }
   }, [window.location.pathname]);
@@ -44,12 +50,12 @@ export default function LeftSidebar() {
           <img src={moviesIcon} alt="Movies Menu Icon" />
           Movies
         </Link>
-        <Link className="menu" to="/tvshows">
-          <img src={tvshowsIcon} alt="Movies Menu Icon" />
+        <Link className={`menu ${selectedMenus.tvshows}`} to="/tvshows">
+          <img src={tvshowsIcon} alt="TVShows Menu Icon" />
           TV Shows
         </Link>
-        <Link className="menu" to="/characters">
-          <img src={charactersIcon} alt="Movies Menu Icon" />
+        <Link className={`menu ${selectedMenus.characters}`} to="/characters">
+          <img src={charactersIcon} alt="Characters Menu Icon" />
           Characters
         </Link>
       </nav>

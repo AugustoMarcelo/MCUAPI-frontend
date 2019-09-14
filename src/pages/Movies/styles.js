@@ -7,6 +7,28 @@ export const Grid = styled.div`
   align-items: stretch;
 `;
 
+export const ShineEffect = styled.div`
+  /* border-radius: 50%; */
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -300px;
+    width: 200px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: skew(-30deg);
+    transition: 0.9s;
+  }
+
+  &:hover::before {
+    left: 400px;
+  }
+`;
+
 export const Card = styled.img`
   height: 296px;
   width: 200px;

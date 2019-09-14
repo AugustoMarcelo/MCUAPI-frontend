@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import api from '~/services/api';
 
-import { Grid, Card } from './styles';
+import { Grid, Card, ShineEffect } from './styles';
 
 export default function Movies() {
   const [movies, setMovies] = useState({
@@ -21,11 +21,9 @@ export default function Movies() {
   return (
     <Grid>
       {movies.data.map(movie => (
-        <Card
-          key={String(movie.id)}
-          src={movie.cover_url}
-          alt={`${movie.title} Cover`}
-        />
+        <ShineEffect key={String(movie.id)}>
+          <Card src={movie.cover_url} alt={`${movie.title} Cover`} />
+        </ShineEffect>
       ))}
     </Grid>
   );

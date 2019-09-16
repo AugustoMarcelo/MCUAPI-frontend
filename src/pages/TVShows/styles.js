@@ -1,40 +1,9 @@
 import styled from 'styled-components';
-import { darken } from 'polished';
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin-right: 10px;
-
-  & > button {
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    bottom: 10px;
-    right: 20px;
-    border: 0;
-    background: #0984e3;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
-    transition: 0.2s;
-
-    svg {
-      color: #f5f5f5;
-      transition: 0.2s;
-    }
-
-    &:hover {
-      /* background: #f5f5f5; */
-      background: ${darken(0.1, '#0984e3')};
-
-      svg {
-        /* color: #0984e3; */
-      }
-    }
-  }
 `;
 
 export const Card = styled.div`
@@ -48,7 +17,6 @@ export const Card = styled.div`
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
 
   img {
-    /* width: 150px; */
     height: 222px;
     border-radius: 2px;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);

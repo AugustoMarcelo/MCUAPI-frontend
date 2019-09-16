@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { FaPencilAlt, FaList, FaPlus } from 'react-icons/fa';
+import { FaPencilAlt, FaList } from 'react-icons/fa';
 
 import api from '~/services/api';
+import FAB from '~/components/FAB';
 
 import {
   Container,
@@ -28,6 +29,10 @@ export default function TVShows() {
 
     loadTvshows();
   }, []);
+
+  function addTvshow() {
+    console.tron.log('Add new tvshow');
+  }
 
   return (
     <Container>
@@ -72,9 +77,7 @@ export default function TVShows() {
           </Actions>
         </Card>
       ))}
-      <button type="button">
-        <FaPlus size={20} />
-      </button>
+      <FAB onClick={addTvshow} />
     </Container>
   );
 }

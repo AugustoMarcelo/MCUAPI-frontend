@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import api from '~/services/api';
-
+import FAB from '~/components/FAB';
 import { Grid, Card, ShineEffect } from './styles';
 
 export default function Movies() {
@@ -18,13 +18,25 @@ export default function Movies() {
 
     loadMovies();
   }, []);
+
+  function addMovie() {
+    console.tron.log('Add new movie');
+  }
+
   return (
-    <Grid>
-      {movies.data.map(movie => (
-        <ShineEffect key={String(movie.id)}>
-          <Card src={movie.cover_url} alt={`${movie.title} Cover`} />
-        </ShineEffect>
-      ))}
-    </Grid>
+    <>
+      <Grid>
+        {movies.data.map(movie => (
+          <ShineEffect key={String(movie.id)}>
+            <Card
+              src={movie.cover_url}
+              title={movie.title}
+              alt={`${movie.title} Cover`}
+            />
+          </ShineEffect>
+        ))}
+      </Grid>
+      <FAB onClick={addMovie} />
+    </>
   );
 }

@@ -11,3 +11,7 @@ Dashboard that allow to manage Movies, TV Shows and Characters from [MCU API](ht
 **Dashboard page (Movies List)**
 
 ![](previews/MoviesList.png)
+
+**Dashboard page (TVShows List)**
+
+![gif](previews/TVShowsList.gif)

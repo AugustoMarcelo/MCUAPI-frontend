@@ -4,9 +4,9 @@ import { FaPlus } from 'react-icons/fa';
 
 import { Button } from './styles';
 
-export default function FAB({ onClick }) {
+export default function FAB({ onClick, sidebarOpen }) {
   return (
-    <Button type="button" onClick={onClick}>
+    <Button type="button" sidebarOpen={sidebarOpen} onClick={onClick}>
       <FaPlus size={20} />
     </Button>
   );
@@ -14,4 +14,9 @@ export default function FAB({ onClick }) {
 
 FAB.propTypes = {
   onClick: PropTypes.func.isRequired,
+  sidebarOpen: PropTypes.bool,
+};
+
+FAB.defaultProps = {
+  sidebarOpen: false,
 };

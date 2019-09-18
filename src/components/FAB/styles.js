@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { darken } from 'polished';
 
 export const Button = styled.button`
@@ -14,7 +14,7 @@ export const Button = styled.button`
   border-radius: 50%;
   margin-bottom: 10px;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
-  transition: 0.2s;
+  transition: 0.2s ease-in;
 
   svg {
     color: #f5f5f5;
@@ -24,4 +24,10 @@ export const Button = styled.button`
   &:hover {
     background: ${darken(0.1, '#0984e3')};
   }
+
+  ${props =>
+    props.sidebarOpen &&
+    css`
+      margin-right: 300px;
+    `}
 `;

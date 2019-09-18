@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { FaPencilAlt, FaList } from 'react-icons/fa';
 
 import api from '~/services/api';
@@ -13,12 +13,17 @@ import {
   Info,
   Actions,
 } from './styles';
+import { RightSidebarContext } from '~/services/RightSidebarContext';
 
 export default function TVShows() {
   const [tvshows, setTvshows] = useState({
     count: 0,
     data: [],
   });
+
+  const { rightSidebarStatus, setRightSidebarStatus } = useContext(
+    RightSidebarContext
+  );
 
   useEffect(() => {
     async function loadTvshows() {
@@ -32,6 +37,16 @@ export default function TVShows() {
 
   function addTvshow() {
     console.tron.log('Add new tvshow');
+  }
+
+  function showMoreInfo(tvshowId) {
+    const { open } = rightSidebarStatus;
+
+    if (open) {
+      setRightSidebarStatus({ elementId: tvshowId });
+    } else {
+      setRightSidebarStatus({ open: !open, elementId: tvshowId });
+    }
   }
 
   return (
@@ -71,13 +86,13 @@ export default function TVShows() {
             <button type="button">
               <FaPencilAlt size={20} />
             </button>
-            <button type="button">
+            <button type="button" onClick={() => showMoreInfo(tvshow.id)}>
               <FaList size={20} />
             </button>
           </Actions>
         </Card>
       ))}
-      <FAB onClick={addTvshow} />
+      <FAB sidebarOpen={rightSidebarStatus.open} onClick={addTvshow} />
     </Container>
   );
 }

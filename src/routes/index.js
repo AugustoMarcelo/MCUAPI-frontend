@@ -7,6 +7,7 @@ import SignIn from '~/pages/SignIn';
 import Dashboard from '~/pages/Dashboard';
 import Movies from '~/pages/Movies';
 import TVShows from '~/pages/TVShows';
+import Characters from '~/pages/Characters';
 
 export default function Routes() {
   return (
@@ -15,6 +16,7 @@ export default function Routes() {
       <Route path="/dashboard" component={Dashboard} isPrivate />
       <Route path="/movies" component={Movies} isPrivate />
       <Route path="/tvshows" component={TVShows} isPrivate />
+      <Route path="/characters" component={Characters} isPrivate />
     </Switch>
   );
 }

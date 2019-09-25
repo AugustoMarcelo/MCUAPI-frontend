@@ -22,12 +22,15 @@ export default function LeftSidebar() {
   useEffect(() => {
     switch (window.location.pathname) {
       case '/movies':
+      case '/movies/create':
         setSelectedMenus({ movies: 'active' });
         break;
       case '/tvshows':
+      case '/tvshows/create':
         setSelectedMenus({ tvshows: 'active' });
         break;
       case '/characters':
+      case '/characters/create':
         setSelectedMenus({ characters: 'active' });
         break;
       default:

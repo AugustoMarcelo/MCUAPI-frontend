@@ -4,7 +4,7 @@ import { FaPencilAlt, FaRegTrashAlt } from 'react-icons/fa';
 import api from '~/services/api';
 
 import FAB from '~/components/FAB';
-import { Grid, Card, HeroName, Name, Actions } from './styles';
+import { Grid, Card, HeroName, Name, Separator, Actions } from './styles';
 
 export default function Characters() {
   const [characters, setCharacters] = useState({
@@ -34,6 +34,7 @@ export default function Characters() {
             <img src={character.photo_url} alt={`${character.name}`} />
             <HeroName>{character.name.split('/', 1)}</HeroName>
             <Name>{character.name.split('/')[1]}</Name>
+            <Separator />
             <Actions>
               <button type="button">
                 <FaPencilAlt size={18} />

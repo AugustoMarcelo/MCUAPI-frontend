@@ -34,6 +34,13 @@ export const Name = styled.span`
   font-size: 16px;
 `;
 
+export const Separator = styled.span`
+  height: 1px;
+  width: 25%;
+  background: #ddd;
+  margin: 5px 0 0;
+`;
+
 export const Actions = styled.div`
   display: flex;
   width: 100%;

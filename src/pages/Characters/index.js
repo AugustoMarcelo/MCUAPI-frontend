@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FaPencilAlt, FaRegTrashAlt } from 'react-icons/fa';
 
 import api from '~/services/api';
+import history from '~/services/history';
 
 import FAB from '~/components/FAB';
 import { Grid, Card, HeroName, Name, Separator, Actions } from './styles';
@@ -23,7 +24,7 @@ export default function Characters() {
   }, []);
 
   function addCharacter() {
-    console.tron.log('Add Character');
+    history.push('/characters/create');
   }
 
   return (

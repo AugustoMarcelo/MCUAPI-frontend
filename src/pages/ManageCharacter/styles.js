@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { darken } from 'polished';
 
 export const Container = styled.div`
   display: flex;
@@ -14,8 +15,11 @@ export const Container = styled.div`
   margin: auto;
 
   .preview {
-    height: 200px;
-    width: 167px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 205px;
+    width: 171px;
     border: 1px dashed #dedede;
     border-radius: 4px;
     margin-bottom: 10px;
@@ -64,27 +68,44 @@ export const Container = styled.div`
         border-color: #222;
       }
       &::placeholder {
-        padding: 10px 0;
+        /* padding: 10px 0; */
       }
     }
 
-    button {
+    button[type='submit'] {
       margin: 0 10px;
-      height: 44px;
-      width: 88px;
-      align-self: flex-end;
       background: transparent;
-      font-weight: bold;
       color: #00b894;
       border: 1px solid #00b894;
-      font-size: 18px;
-      border-radius: 2px;
-      transition: all 0.2s;
 
       &:hover {
         background: #00b894;
         color: #fff;
       }
+    }
+  }
+`;
+
+export const Actions = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  button {
+    height: 44px;
+    width: 88px;
+    align-self: flex-end;
+    background: #f0131e;
+    font-weight: bold;
+    color: #fff;
+    border: 0;
+    font-size: 18px;
+    border-radius: 2px;
+    transition: all 0.2s;
+
+    &:hover {
+      background: ${darken(0.1, '#f0131e')};
+      color: #fff;
     }
   }
 `;

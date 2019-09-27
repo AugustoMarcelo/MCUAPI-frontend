@@ -37,7 +37,10 @@ export default function Characters() {
             <Name>{character.name.split('/')[1]}</Name>
             <Separator />
             <Actions>
-              <button type="button">
+              <button
+                type="button"
+                onClick={() => history.push(`/characters/edit/${character.id}`)}
+              >
                 <FaPencilAlt size={18} />
               </button>
               <button type="button">

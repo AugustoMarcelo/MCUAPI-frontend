@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
+import PropTypes from 'prop-types';
 
-import { Container } from './styles';
-import { addRequest } from '~/store/modules/character/actions';
+import history from '~/services/history';
+import api from '~/services/api';
+
+import { Container, Actions } from './styles';
+import { addRequest, updateRequest } from '~/store/modules/character/actions';
 
 const schema = Yup.object().shape({
   name: Yup.string().required('Character name is required'),
@@ -13,17 +17,31 @@ const schema = Yup.object().shape({
   bio: Yup.string(),
 });
 
-export default function ManageCharacter() {
+export default function ManageCharacter({ match }) {
+  const { id } = match.params;
   const [character, setCharacter] = useState({});
   const dispatch = useDispatch();
 
   function handleSubmit(data) {
-    dispatch(addRequest(data));
+    if (!id) dispatch(addRequest(data));
+    else dispatch(updateRequest(data, id));
   }
 
   function handlePreview(event) {
     setCharacter({ photo_url: event.target.value });
   }
+
+  useEffect(() => {
+    if (!id) return;
+
+    async function getCharacter() {
+      const response = await api.get(`characters/${id}`);
+
+      setCharacter({ ...response.data });
+    }
+
+    getCharacter();
+  }, [id]);
 
   return (
     <Container>
@@ -63,8 +81,29 @@ export default function ManageCharacter() {
           placeholder="Bio"
           autoComplete="off"
         />
-        <button type="submit">SAVE</button>
+        <Actions>
+          <button type="button" onClick={() => history.push('/characters')}>
+            BACK
+          </button>
+          <button type="submit">SAVE</button>
+        </Actions>
       </Form>
     </Container>
   );
 }
+
+ManageCharacter.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }),
+};
+
+ManageCharacter.defaultProps = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: null,
+    }),
+  }),
+};

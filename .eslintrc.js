@@ -29,6 +29,7 @@ module.exports = {
       'warn',
       { extensions: ['.jsx', '.js'] }
     ],
+    'camelcase': 'off',
     'no-param-reassign': 'off',
     'react/jsx-props-no-spreading': 'off',
     'import/prefer-default-export': 'off',

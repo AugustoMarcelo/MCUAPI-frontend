@@ -7,7 +7,7 @@ export const Container = styled.div`
   justify-content: center;
   background: #fff;
   border-radius: 4px;
-  box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
   padding: 20px;
   width: 100%;
   max-width: 600px;
@@ -15,10 +15,16 @@ export const Container = styled.div`
 
   .preview {
     height: 200px;
-    width: 160px;
+    width: 167px;
     border: 1px dashed #dedede;
     border-radius: 4px;
     margin-bottom: 10px;
+
+    img {
+      height: 200px;
+      width: 167px;
+      border-radius: 4px;
+    }
   }
 
   form {
@@ -36,6 +42,29 @@ export const Container = styled.div`
 
       &:focus {
         border-color: #222;
+      }
+    }
+
+    span {
+      color: #fab1a0;
+      align-self: flex-start;
+      margin: 0 10px 10px;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    textarea {
+      border: 1px solid #dedede;
+      border-radius: 4px;
+      height: 200px;
+      padding: 10px 15px;
+      margin: 0 10px 10px;
+      transition: border 0.2s;
+      &:focus {
+        border-color: #222;
+      }
+      &::placeholder {
+        padding: 10px 0;
       }
     }
 

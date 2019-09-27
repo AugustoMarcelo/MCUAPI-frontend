@@ -44,11 +44,13 @@ export default function LeftSidebar() {
   return (
     <Container>
       <nav>
-        <Logo
-          src={logo}
-          alt="MCUAPI Logo"
-          title="Marvel Cinematic Universe API"
-        />
+        <Link to="/dashboard">
+          <Logo
+            src={logo}
+            alt="MCUAPI Logo"
+            title="Marvel Cinematic Universe API"
+          />
+        </Link>
         <Link className={`menu ${selectedMenus.movies}`} to="/movies">
           <img src={moviesIcon} alt="Movies Menu Icon" />
           Movies

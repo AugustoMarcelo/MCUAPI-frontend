@@ -23,6 +23,12 @@ export default function Routes() {
         component={ManageCharacter}
         isPrivate
       />
+      <Route
+        path="/characters/edit/:id"
+        exact
+        component={ManageCharacter}
+        isPrivate
+      />
       <Route path="/characters" component={Characters} isPrivate />
     </Switch>
   );

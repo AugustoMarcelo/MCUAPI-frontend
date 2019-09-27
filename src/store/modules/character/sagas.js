@@ -14,11 +14,34 @@ export function* addCharacter({ payload }) {
       photo_url,
       bio,
     });
-    toast.success('Character added success');
+    toast.success('Successfully registered character');
     history.push('/characters');
   } catch (error) {
     toast.error(error.response.data.error);
   }
 }
 
-export default all([takeLatest('@character/ADD_REQUEST', addCharacter)]);
+export function* updateCharacter({ payload }) {
+  try {
+    const { name, actor, photo_url, bio } = payload.data;
+    const { id } = payload;
+
+    yield call(api.put, `characters/${id}`, {
+      name,
+      actor,
+      photo_url,
+      bio,
+    });
+
+    toast.success('Character successfully updated');
+
+    history.push('/characters');
+  } catch (error) {
+    toast.error(error.response.data.error);
+  }
+}
+
+export default all([
+  takeLatest('@character/ADD_REQUEST', addCharacter),
+  takeLatest('@character/UPDATE_REQUEST', updateCharacter),
+]);

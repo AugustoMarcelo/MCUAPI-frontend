@@ -20,17 +20,18 @@ export default function LeftSidebar() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    switch (window.location.pathname) {
+    const endpoint = window.location.pathname.split('/').filter(char => {
+      return char !== '';
+    });
+
+    switch (`/${endpoint[0]}`) {
       case '/movies':
-      case '/movies/create':
         setSelectedMenus({ movies: 'active' });
         break;
       case '/tvshows':
-      case '/tvshows/create':
         setSelectedMenus({ tvshows: 'active' });
         break;
       case '/characters':
-      case '/characters/create':
         setSelectedMenus({ characters: 'active' });
         break;
       default:

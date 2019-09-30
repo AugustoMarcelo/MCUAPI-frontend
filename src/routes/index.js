@@ -9,12 +9,14 @@ import Movies from '~/pages/Movies';
 import TVShows from '~/pages/TVShows';
 import Characters from '~/pages/Characters';
 import ManageCharacter from '~/pages/ManageCharacter';
+import ManageMovie from '~/pages/ManageMovie';
 
 export default function Routes() {
   return (
     <Switch>
       <Route path="/" exact component={SignIn} />
       <Route path="/dashboard" component={Dashboard} isPrivate />
+      <Route path="/movies/create" exact component={ManageMovie} isPrivate />
       <Route path="/movies" component={Movies} isPrivate />
       <Route path="/tvshows" component={TVShows} isPrivate />
       <Route

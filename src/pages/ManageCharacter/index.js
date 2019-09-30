@@ -28,7 +28,7 @@ export default function ManageCharacter({ match }) {
   }
 
   function handlePreview(event) {
-    setCharacter({ photo_url: event.target.value });
+    setCharacter({ ...character, photo_url: event.target.value });
   }
 
   useEffect(() => {
@@ -73,14 +73,7 @@ export default function ManageCharacter({ match }) {
           onBlur={handlePreview}
           autoComplete="off"
         />
-        <Input
-          name="bio"
-          multiline
-          defaultValue={character.bio}
-          type="text"
-          placeholder="Bio"
-          autoComplete="off"
-        />
+        <Input name="bio" multiline placeholder="Bio" autoComplete="off" />
         <Actions>
           <button type="button" onClick={() => history.push('/characters')}>
             BACK

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import api from '~/services/api';
+import history from '~/services/history';
 import FAB from '~/components/FAB';
 import { Grid, Card, ShineEffect } from './styles';
 
@@ -20,7 +21,7 @@ export default function Movies() {
   }, []);
 
   function addMovie() {
-    console.tron.log('Add new movie');
+    history.push('/movies/create');
   }
 
   return (

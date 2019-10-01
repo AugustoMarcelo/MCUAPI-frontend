@@ -33,6 +33,7 @@ export default function Movies() {
               src={movie.cover_url}
               title={movie.title}
               alt={`${movie.title} Cover`}
+              onClick={() => history.push(`/movies/edit/${movie.id}`)}
             />
           </ShineEffect>
         ))}

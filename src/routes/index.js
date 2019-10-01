@@ -17,6 +17,7 @@ export default function Routes() {
       <Route path="/" exact component={SignIn} />
       <Route path="/dashboard" component={Dashboard} isPrivate />
       <Route path="/movies/create" exact component={ManageMovie} isPrivate />
+      <Route path="/movies/edit/:id" exact component={ManageMovie} isPrivate />
       <Route path="/movies" component={Movies} isPrivate />
       <Route path="/tvshows" component={TVShows} isPrivate />
       <Route

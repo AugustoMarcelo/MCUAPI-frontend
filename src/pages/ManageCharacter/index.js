@@ -36,7 +36,6 @@ export default function ManageCharacter({ match }) {
 
     async function getCharacter() {
       const response = await api.get(`characters/${id}`);
-
       setCharacter({ ...response.data });
     }
 
@@ -51,29 +50,15 @@ export default function ManageCharacter({ match }) {
         )}
       </div>
       <Form initialData={character} schema={schema} onSubmit={handleSubmit}>
-        <Input
-          name="name"
-          defaultValue={character.name}
-          type="text"
-          placeholder="Name"
-          autoComplete="off"
-        />
-        <Input
-          name="actor"
-          defaultValue={character.actor}
-          type="text"
-          placeholder="Actor Name"
-          autoComplete="off"
-        />
+        <Input name="name" placeholder="Name" autoComplete="off" />
+        <Input name="actor" placeholder="Actor Name" autoComplete="off" />
         <Input
           name="photo_url"
-          defaultValue={character.photo_url}
-          type="text"
           placeholder="Photo URL"
           onBlur={handlePreview}
           autoComplete="off"
         />
-        <Input name="bio" multiline placeholder="Bio" autoComplete="off" />
+        <Input multiline name="bio" placeholder="Bio" autoComplete="off" />
         <Actions>
           <button type="button" onClick={() => history.push('/characters')}>
             BACK

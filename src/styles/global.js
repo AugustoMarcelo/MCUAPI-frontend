@@ -24,7 +24,7 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialiased;
   }
 
-  body, input, textarea, button {
+  body, input, textarea, button, select {
     font: 14px 'Advent Pro', sans-serif;
   }
 

@@ -24,7 +24,7 @@ export const Container = styled.div`
       border-radius: 4px;
       height: 44px;
       padding: 0 15px;
-      margin: 0 10px 10px;
+      margin: 0 0 10px;
       transition: 0.2s;
 
       &:focus {
@@ -45,7 +45,7 @@ export const Container = styled.div`
       border-radius: 4px;
       height: 200px;
       padding: 10px 15px;
-      margin: 0 10px 10px;
+      margin: 0 0 10px;
       transition: border 0.2s;
       &:focus {
         border-color: #222;
@@ -69,7 +69,7 @@ export const Container = styled.div`
 export const RelatedInputs = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 10px;
+  margin: 10px 0;
   padding: 10px;
   background: #fff;
   border-radius: 4px;

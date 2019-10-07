@@ -64,7 +64,7 @@ export default function ManageMovie({ match }) {
 
   async function editMovie() {
     const response = await api.get(`movies/${id}`);
-    let { related: movies, tvshows, characters, ...data } = response.data;
+    let { movies, tvshows, characters, ...data } = response.data;
     movies = movies.map(m => m.id);
     tvshows = tvshows.map(ts => ts.id);
     characters = characters.map(c => c.id);

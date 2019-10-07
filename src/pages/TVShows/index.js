@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { FaPencilAlt, FaList } from 'react-icons/fa';
 
 import api from '~/services/api';
+import history from '~/services/history';
 import FAB from '~/components/FAB';
 
 import {
@@ -36,7 +37,7 @@ export default function TVShows() {
   }, []);
 
   function addTvshow() {
-    console.tron.log('Add new tvshow');
+    history.push('/tvshows/create');
   }
 
   function showMoreInfo(tvshowId) {
@@ -83,7 +84,10 @@ export default function TVShows() {
             </Info>
           </Content>
           <Actions>
-            <button type="button">
+            <button
+              type="button"
+              onClick={() => history.push(`/tvshows/edit/${tvshow.id}`)}
+            >
               <FaPencilAlt size={20} />
             </button>
             <button type="button" onClick={() => showMoreInfo(tvshow.id)}>

@@ -28,10 +28,15 @@ const schema = Yup.object().shape({
 
 export default function ManageTvshow({ match }) {
   const { id } = match.params;
+  const options = [
+    { id: 'running', title: 'Running' },
+    { id: 'cancelled', title: 'Cancelled' },
+  ];
 
   const [tvshow, setTvshow] = useState({});
   const [choiceMovies, setChoiceMovies] = useState([]);
   const [choiceCharacters, setChoiceCharacters] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -51,6 +56,7 @@ export default function ManageTvshow({ match }) {
   }
 
   async function editTvshow() {
+    setLoading(true);
     const response = await api.get(`tvshows/${id}`);
     let { movies, characters, ...data } = response.data;
     movies = movies.map(m => m.id);
@@ -63,6 +69,7 @@ export default function ManageTvshow({ match }) {
     });
 
     await newTvshow();
+    setLoading(false);
   }
 
   useEffect(() => {
@@ -94,14 +101,13 @@ export default function ManageTvshow({ match }) {
           name="total_episodes"
           placeholder="Total number of episodes"
         />
-        <Select
-          name="status"
-          options={[
-            { id: 'running', title: 'Running' },
-            { id: 'cancelled', title: 'Cancelled' },
-          ]}
-          placeholder="Set TvShow status"
-        />
+        {!loading && (
+          <Select
+            name="status"
+            options={options}
+            placeholder="Set TvShow status"
+          />
+        )}
         <RelatedInputs>
           <ChoiceContainer>
             <Choice name="related_movies" options={choiceMovies} multiple />

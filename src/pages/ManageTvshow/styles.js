@@ -61,7 +61,7 @@ export const Container = styled.div`
     }
 
     button[type='submit'] {
-      margin: 0 10px;
+      margin-left: 10px;
       background: transparent;
       color: #00b894;
       border: 1px solid #00b894;
